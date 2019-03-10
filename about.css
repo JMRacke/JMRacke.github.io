@@ -1,0 +1,67 @@
+h1 img {
+    width: 300px;
+    vertical-align: middle;
+}
+
+h1 {
+    font-size: 3cm;
+    color: beige;
+    text-align: center;
+}
+
+header {
+    background-image: url(cloudy.jpg)
+}
+
+.imageset2 {
+    width: 400px
+}
+
+body {
+
+    background-color: darkslategray;
+}
+
+.imageset {
+    max-width: 100%;
+    height: auto;
+}
+
+#navmenu {
+    position: fixed;
+}
+
+nav ul {
+    list-style: none;
+    padding-inline-start: 0px;
+    text-align: left;
+
+}
+
+.main {
+    display: grid;
+    grid: auto auto / auto auto auto auto;
+    background-color: rgb(192, 192, 192);
+
+}
+
+.gfg {
+    background-color: lightgrey;
+    text-align: center;
+    font-size: 30px;
+}
+
+h2 {
+    text-align: center;
+    color: bisque;
+    font-size: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logos {
+    height: 80px;
+}
+
+article {
+    margin: 100px;
+}
