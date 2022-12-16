@@ -1,16 +1,16 @@
-
 //Search Form Sumbmit Handler
-form_id.addEventListener("submit", (event) =>{
-    event.preventDefault();
+import { drawMap } from "./cards-and-maps/drawMap.js";
+import { handleError } from "./error-handling/error.js";
 
-    if (navigator.geolocation) {
+form_id.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-        /*success - A callback function that takes a GeolocationPosition object as its sole input parameter.
+  if (navigator.geolocation) {
+    /*success - A callback function that takes a GeolocationPosition object as its sole input parameter.
         error - An optional callback function that takes a GeolocationPositionError object as its sole input parameter.
         */
-        navigator.geolocation.getCurrentPosition(success,error)
-    }else{
-        form_input_noTracking.classList.remove("hidden");
-    }
-
-})
+    navigator.geolocation.getCurrentPosition(drawMap, handleError);
+  } else {
+    form_input_noTracking.classList.remove("hidden");
+  }
+});
