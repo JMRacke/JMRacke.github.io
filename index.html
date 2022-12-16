@@ -35,7 +35,7 @@
     <div class="wrapper">
       <main>
         <h1>Restaurant <span>Search</span></h1>
-        <form action="">
+        <form action="" id="form_id">
           <div class="form-wrapper">
             <label for="restaurant-name">Search</label>
             <input
@@ -60,7 +60,8 @@
         </form>
       </main>
       <hr />
-      <section id="restaurant-results"></section>
+      <section id="restaurant_results"></section>
+      <section id="map_container"></section>
     </div>
 
     <template>
@@ -85,6 +86,8 @@
       </div>
     </template>
 
-    <script src="./script.js"></script>
+    <script type="module" src="./JS/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={}&v=weekly"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
   </body>
 </html>
