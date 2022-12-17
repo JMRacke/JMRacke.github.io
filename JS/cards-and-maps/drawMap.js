@@ -7,6 +7,7 @@ export function drawMap({ coords: { latitude: lat, longitude: lng } }) {
   const map = new google.maps.Map(document.getElementById("map_container"), {
     zoom: 12,
     center: { lat: lat, lng: lng },
+    mapId: `92d78e74df8df401`
   });
   const infoWindow = new google.maps.InfoWindow({
     content: "",
