@@ -2,12 +2,14 @@
 //<script src="https://maps.googleapis.com/maps/api/js?key={}&v=weekly"></script>
 //    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 
-export function drawMap({ coords: { latitude: lat, longitude: lng } }) {
-  const currentloc = { lat: lat, lng: lng };
+export function drawMap({ lat, lng }) {
   const map = new google.maps.Map(document.getElementById("map_container"), {
     zoom: 12,
-    center: { lat: lat, lng: lng },
-    mapId: `92d78e74df8df401`
+    center: {
+      lat: lat,
+      lng: lng,
+    },
+    mapId: `92d78e74df8df401`,
   });
   const infoWindow = new google.maps.InfoWindow({
     content: "",
@@ -23,7 +25,7 @@ export function drawMap({ coords: { latitude: lat, longitude: lng } }) {
         lng: Number(card.getAttribute("lng")),
       };
       locations.push(loc);
-      labels.push(card.getElementByClassName("result-title"));
+      labels.push(card.children[1].children[0].textContent);
     }
 
     const markers = locations.map((position, i) => {
@@ -35,10 +37,6 @@ export function drawMap({ coords: { latitude: lat, longitude: lng } }) {
         infoWindow.open(map, marker);
       });
       return marker;
-    });
-    const marker = new google.maps.Marker({
-      position: { lat, lng },
-      map: map,
     });
 
     new markerClusterer.MarkerClusterer({ markers, map });
