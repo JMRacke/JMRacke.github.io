@@ -1,16 +1,26 @@
 //Search Form Sumbmit Handler
 import { drawMap } from "./cards-and-maps/drawMap.js";
-import { handleError } from "./error-handling/error.js";
+import { getRestaurants, noTrackGetRestaurants } from "./cards-and-maps/restaurant.js";
+import { noTracking } from "./error-handling/error.js";
 
-form_id.addEventListener("submit", (event) => {
+
+
+form_track.addEventListener("submit", (event) => {
+
   event.preventDefault();
 
   if (navigator.geolocation) {
-    /*success - A callback function that takes a GeolocationPosition object as its sole input parameter.
-        error - An optional callback function that takes a GeolocationPositionError object as its sole input parameter.
-        */
-    navigator.geolocation.getCurrentPosition(drawMap, handleError);
-  } else {
-    form_input_noTracking.classList.remove("hidden");
-  }
+    navigator.geolocation.getCurrentPosition(getRestaurants, noTracking);
+  } 
+
 });
+
+form_noTrack.addEventListener("submit", (event) => {
+  event.preventDefault();
+  noTrackGetRestaurants(location_name_noTrack.value, restaurant_name_noTrack.value);
+  
+});
+
+// if (navigator.geolocation) {
+//   navigator.geolocation.getCurrentPosition(drawMap, noTracking);
+// } 
