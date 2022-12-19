@@ -8,18 +8,9 @@ export function getRestaurants({ coords: { latitude: lat, longitude: lon } }) {
   locationCoords.lat = Number(lat);
   locationCoords.lng = Number(lon);
 
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer 4sfLxKbsAK5p6bIVD8BX0tqRE4uIHdY1xEODX6SoLqe1EiM-pbBrQaF6EcbKp21875SXDIVINCGwVe2-8LlMCcNZu2q--nqBaznHD349PbHlxaLFX88-LOywtnubY3Yx",
-    },
-  };
+  const apiUrl = `https://sde-final-backend.herokuapp.com/api?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=10000&open_now=true&sort_by=best_match&limit=20`;
 
-  const apiUrl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=10000&open_now=true&sort_by=best_match&limit=20`;
-
-  fetch(apiUrl, options)
+  fetch(apiUrl)
     .then((res) => res.json())
     .then((json) => {
       if (json.error) {
@@ -33,19 +24,9 @@ export function getRestaurants({ coords: { latitude: lat, longitude: lon } }) {
 }
 
 export function noTrackGetRestaurants(searchlocation, searchTerm) {
-  debugger;
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer 4sfLxKbsAK5p6bIVD8BX0tqRE4uIHdY1xEODX6SoLqe1EiM-pbBrQaF6EcbKp21875SXDIVINCGwVe2-8LlMCcNZu2q--nqBaznHD349PbHlxaLFX88-LOywtnubY3Yx",
-    },
-  };
+  const apiUrl = `https://sde-final-backend.herokuapp.com/api?location=${searchlocation}&term=${searchTerm}&open_now=true&sort_by=best_match&limit=20`;
 
-  const apiUrl = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${searchlocation}&term=${searchTerm}&open_now=true&sort_by=best_match&limit=20`;
-
-  fetch(apiUrl, options)
+  fetch(apiUrl)
     .then((res) => res.json())
     .then((json) => {
       if (json.error) {
