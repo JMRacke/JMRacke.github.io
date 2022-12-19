@@ -1,9 +1,9 @@
 // Required imports for the html
 //<script src="https://maps.googleapis.com/maps/api/js?key={}&v=weekly"></script>
 //    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-
+let map;
 export function drawMap({ lat, lng }) {
-  const map = new google.maps.Map(document.getElementById("map_container"), {
+  map = new google.maps.Map(document.getElementById("map_container"), {
     zoom: 12,
     center: {
       lat: lat,
@@ -46,4 +46,9 @@ export function drawMap({ lat, lng }) {
       map: map,
     });
   }
+}
+
+export function centerOnMarker({ lat, lng }) {
+  debugger;
+  map.panTo({ lat: lat, lng: lng });
 }

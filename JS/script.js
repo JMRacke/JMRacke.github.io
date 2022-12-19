@@ -1,5 +1,5 @@
 //Search Form Sumbmit Handler
-import { drawMap } from "./cards-and-maps/drawMap.js";
+import { centerOnMarker, drawMap } from "./cards-and-maps/drawMap.js";
 import {
   getRestaurants,
   noTrackGetRestaurants,
@@ -27,6 +27,17 @@ form_noTrack.addEventListener("submit", (event) => {
   );
 });
 
+restaurant_results.onclick = (event) => {
+  let target = event.target.parentNode;
+  debugger;
+  if (target.classList.contains("card")) {
+    const coords = {
+      lat: Number(target.getAttribute("lat")),
+      lng: Number(target.getAttribute("lng")),
+    };
+    centerOnMarker(coords);
+  }
+};
 // if (navigator.geolocation) {
 //   navigator.geolocation.getCurrentPosition(drawMap, noTracking);
 // }
