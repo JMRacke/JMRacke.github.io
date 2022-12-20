@@ -9,7 +9,7 @@ export function getRestaurants({ coords: { latitude: lat, longitude: lon } }) {
   locationCoords.lat = Number(lat);
   locationCoords.lng = Number(lon);
 
-  const apiUrl = `https://sde-final-backend.herokuapp.com/api?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=10000&open_now=true&sort_by=best_match&limit=20`;
+  const apiUrl = `https://sde-final-backend.herokuapp.com/api?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=40000&open_now=true&sort_by=best_match&limit=20`;
   getData(apiUrl)
   .then(({businesses}) => {
     showRes({businesses});
@@ -45,7 +45,7 @@ function showRes({ businesses }) {
         <h6 class="card-subtitle mb-2 text-muted">${rest.location.display_address}</h6>
         <h6 class="card-subtitle mb-2 text-muted">${rest.phone}</h6>
         
-          <a href="${rest.url}" class="card-link">Card link</a>
+          <a href="${rest.url}" target="_blank" class="card-link">Card link</a>
           <a href="#map_container" class="card-link">Map</a>
       </div>`;
     restaurant_results.appendChild(cardContainer);
