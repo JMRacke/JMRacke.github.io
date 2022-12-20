@@ -4,7 +4,7 @@
 let map;
 export function drawMap({ lat, lng }) {
   map = new google.maps.Map(document.getElementById("map_container"), {
-    zoom: 12,
+    zoom: 9,
     center: {
       lat: lat,
       lng: lng,
