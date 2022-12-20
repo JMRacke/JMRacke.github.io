@@ -86,8 +86,16 @@ body {
   width: 100%; /* The width is the width of the web page */
 }
 
-
-
+#restaurant_results{
+  border: 5px solid;
+  height: 400px; /* The height is 400 pixels */
+  width: 100%;
+  overflow:scroll;
+  margin-bottom: 10px;
+}
+.card{
+  margin: 5px;
+}
 .hidden{
   display: none;
 }

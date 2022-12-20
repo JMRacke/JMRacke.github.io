@@ -1,5 +1,6 @@
 import { handleError } from "../error-handling/error.js";
 import { drawMap } from "./drawMap.js";
+import { getData } from "../api-helper/get-data.js";
 const locationCoords = {
   lat: 0,
   lng: 0,
@@ -9,34 +10,19 @@ export function getRestaurants({ coords: { latitude: lat, longitude: lon } }) {
   locationCoords.lng = Number(lon);
 
   const apiUrl = `https://sde-final-backend.herokuapp.com/api?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=10000&open_now=true&sort_by=best_match&limit=20`;
-
-  fetch(apiUrl)
-    .then((res) => res.json())
-    .then((json) => {
-      if (json.error) {
-        handleError(json.error);
-      } else {
-        debugger;
-        showRes(json);
-      }
-    })
-    .catch((err) => console.error(err));
+  getData(apiUrl)
+  .then(({businesses}) => {
+    showRes({businesses});
+  })
 }
 
 export function noTrackGetRestaurants(searchlocation, searchTerm) {
   const apiUrl = `https://sde-final-backend.herokuapp.com/api?location=${searchlocation}&term=${searchTerm}&open_now=true&sort_by=best_match&limit=20`;
-
-  fetch(apiUrl)
-    .then((res) => res.json())
-    .then((json) => {
-      if (json.error) {
-        handleError(json.error);
-      } else {
-        debugger;
-        showRes(json);
-      }
-    })
-    .catch((err) => console.error(err));
+getData(apiUrl)
+.then(({businesses}) => {
+  showRes({businesses});
+})
+ 
 }
 
 function showRes({ businesses }) {
