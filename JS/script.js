@@ -15,6 +15,7 @@ form_track.addEventListener("submit", (event) => {
   event.preventDefault();
 
   if (navigator.geolocation) {
+    debugger;
     navigator.geolocation.getCurrentPosition(getRestaurants, noTracking);
   }
 });
@@ -29,15 +30,12 @@ form_noTrack.addEventListener("submit", (event) => {
 
 restaurant_results.onclick = (event) => {
   let target = event.target.parentNode;
-  debugger;
-  if (target.classList.contains("card")) {
+  if (target.classList.contains("card-body")) {
     const coords = {
-      lat: Number(target.getAttribute("lat")),
-      lng: Number(target.getAttribute("lng")),
+      lat: Number(target.parentElement.getAttribute("lat")),
+      lng: Number(target.parentElement.getAttribute("lng")),
     };
     centerOnMarker(coords);
   }
 };
-// if (navigator.geolocation) {
-//   navigator.geolocation.getCurrentPosition(drawMap, noTracking);
-// }
+

@@ -49,6 +49,6 @@ export function drawMap({ lat, lng }) {
 }
 
 export function centerOnMarker({ lat, lng }) {
-  debugger;
   map.panTo({ lat: lat, lng: lng });
+  map.setZoom(15);
 }
