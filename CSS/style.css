@@ -86,16 +86,30 @@ body {
   width: 100%; /* The width is the width of the web page */
 }
 
-#restaurant_results{
-  border: 5px solid;
-  height: 400px; /* The height is 400 pixels */
+#restaurant_results {
+  height: 525px; /* The height is 400 pixels */
   width: 100%;
-  overflow:scroll;
+  overflow: auto;
   margin-bottom: 10px;
 }
-.card{
+.card {
   margin: 5px;
 }
-.hidden{
+.hidden {
   display: none;
+}
+
+#about_hr {
+  width: 90vw;
+  margin: auto;
+}
+
+.id_card {
+  width: 25rem;
+  border-radius: 20px;
+}
+
+.portrait {
+  border-radius: 25rem;
+  scale: 75%;
 }
