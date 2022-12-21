@@ -40,3 +40,14 @@ restaurant_results.onclick = (event) => {
     centerOnMarker(coords);
   }
 };
+
+// Event listeners to update the value of the Radius slider as its changed
+search_range_noTrack.addEventListener(
+  "change",
+  () => (radius_miles_noTrack.textContent = search_range_noTrack.value)
+);
+
+search_range_Track.addEventListener(
+  "change",
+  () => (radius_miles_Track.textContent = search_range_Track.value)
+);

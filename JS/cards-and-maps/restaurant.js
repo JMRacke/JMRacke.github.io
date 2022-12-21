@@ -8,21 +8,20 @@ const locationCoords = {
 export function getRestaurants({ coords: { latitude: lat, longitude: lon } }) {
   locationCoords.lat = Number(lat);
   locationCoords.lng = Number(lon);
+  const meters = calculateRadius(search_range_Track.value);
 
-  const apiUrl = `https://sde-final-backend.herokuapp.com/api?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=40000&open_now=true&sort_by=best_match&limit=20`;
-  getData(apiUrl)
-  .then(({businesses}) => {
-    showRes({businesses});
-  })
+  const apiUrl = `https://sde-final-backend.herokuapp.com/api?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=${meters}&open_now=true&sort_by=best_match&limit=20`;
+  getData(apiUrl).then(({ businesses }) => {
+    showRes({ businesses });
+  });
 }
 
 export function noTrackGetRestaurants(searchlocation, searchTerm) {
-  const apiUrl = `https://sde-final-backend.herokuapp.com/api?location=${searchlocation}&term=${searchTerm}&open_now=true&sort_by=best_match&limit=10`;
-getData(apiUrl)
-.then(({businesses}) => {
-  showRes({businesses});
-})
- 
+  const meters = calculateRadius(search_range_noTrack.value);
+  const apiUrl = `https://sde-final-backend.herokuapp.com/api?location=${searchlocation}&radius=${meters}&term=${searchTerm}&open_now=true&sort_by=best_match&limit=20`;
+  getData(apiUrl).then(({ businesses }) => {
+    showRes({ businesses });
+  });
 }
 
 function showRes({ businesses }) {
@@ -32,10 +31,7 @@ function showRes({ businesses }) {
   for (const rest of businesses) {
     const cardContainer = document.createElement("div");
     cardContainer.className = "card grid-item";
-    cardContainer.setAttribute(
-      "style",
-      "width: 18rem; height: 22rem;"
-    );
+    cardContainer.setAttribute("style", "width: 18rem; height: 22rem;");
     cardContainer.setAttribute("lat", `${rest.coordinates.latitude}`);
     cardContainer.setAttribute("lng", `${rest.coordinates.longitude}`);
     cardContainer.innerHTML = `
@@ -55,7 +51,7 @@ function showRes({ businesses }) {
       </div>`;
     restaurant_results.appendChild(cardContainer);
   }
-  
+
   if (locationCoords.lat == 0 && locationCoords.lng == 0) {
     locationCoords.lat = Number(
       restaurant_results.children[0].getAttribute("lat")
@@ -65,4 +61,12 @@ function showRes({ businesses }) {
     );
   }
   drawMap(locationCoords);
+}
+
+function calculateRadius(miles) {
+  let meters = Math.floor(miles * 1609.34);
+  if (meters > 40000) {
+    meters = 40000;
+  }
+  return meters;
 }
