@@ -66,5 +66,5 @@ export async function drawMap({ lat, lng }) {
 // centers the map on a location and zooms into it.
 export function centerOnMarker({ lat, lng }) {
   map.panTo({ lat: lat, lng: lng });
-  map.setZoom(13);
+  map.setZoom(18);
 }
