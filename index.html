@@ -46,7 +46,18 @@
               placeholder="Search for a restaurant"
             />
           </div>
-          
+          <div class="form-wrapper">
+            <label for="search-radius">Search Radius:</label>
+            <input
+              name="search-radius"
+              type="range"
+              min="1"
+              max="25"
+              value="5"
+              id="search_range_Track"
+            />
+            <span><span id="radius_miles_Track">5</span> miles</span>
+          </div>
           <input type="submit" />
         </form>
 
@@ -67,7 +78,20 @@
               type="text"
               id="location_name_noTrack"
               placeholder="Enter your city"
+              required
             />
+          </div>
+          <div class="form-wrapper">
+            <label for="search-radius">Search Radius:</label>
+            <input
+              name="search-radius"
+              type="range"
+              min="1"
+              max="25"
+              value="5"
+              id="search_range_noTrack"
+            />
+            <span><span id="radius_miles_noTrack">5</span> miles</span>
           </div>
           <input type="submit" />
         </form>
