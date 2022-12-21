@@ -3,4 +3,3 @@ export const DEFAULT_ERROR_MESSAGE =
 
 export const NO_FOUND_RESTAURANTS = "No restaurants found on the YELP api";
 
-export const NO_TRACKING_MESSAGE = "Please Enter Your Location"

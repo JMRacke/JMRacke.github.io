@@ -3,11 +3,13 @@ import { drawMap } from "./drawMap.js";
 import { getData } from "../api-helper/get-data.js";
 import { NO_FOUND_RESTAURANTS } from "../global-constants/constants.js";
 
+//Setting default lat/lng to 0
 const locationCoords = {
   lat: 0,
   lng: 0,
 };
 
+//When user allows geolocation. This function uses the lat and long of user's current position and search radius to display cards.
 export function getRestaurants({ coords: { latitude: lat, longitude: lon } }) {
   locationCoords.lat = Number(lat);
   locationCoords.lng = Number(lon);
@@ -17,14 +19,14 @@ export function getRestaurants({ coords: { latitude: lat, longitude: lon } }) {
 
   handleUrl(apiUrl);
 }
-
+//Without geolocation. This function uses a searchlocation, searchTerm, and searchRadius to display cards.
 export function noTrackGetRestaurants(searchlocation, searchTerm) {
   const meters = calculateRadius(search_range_noTrack.value);
   const apiUrl = `https://sde-final-backend.herokuapp.com/api?location=${searchlocation}&radius=${meters}&term=${searchTerm}&open_now=true&sort_by=best_match&limit=20`;
 
   handleUrl(apiUrl);
 }
-
+//Uses json data to handle errors and show the cards
 function handleUrl(url) {
   getData(url).then((json_payload) => {
     const restaurants = json_payload.businesses;
@@ -39,7 +41,7 @@ function handleUrl(url) {
     }
   });
 }
-
+//Bulids the card container for the each restaurant and appends to the restaurant_results container. Also gets lat and long of restaurant to draw locations on the map.
 function showRes(restaurants) {
   restaurant_results.innerHTML = "";
   map_container.innerHTML = "";
@@ -78,7 +80,7 @@ function showRes(restaurants) {
   }
   drawMap(locationCoords);
 }
-
+//Converts miles to meters because yelp and google uses meters.
 function calculateRadius(miles) {
   let meters = Math.floor(miles * 1609.34);
   if (meters > 40000) {

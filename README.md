@@ -57,7 +57,8 @@ The Restaurant/Pub Finder App lets you find open Restaurants/Pubs near you, usin
 
 - Alex
 
-  - TODO
+  - Yelp and Google Places API
+  - Cross-Origin Resource Sharing (CORS)
 
 - Ethan
   - TODO
