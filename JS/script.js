@@ -15,7 +15,7 @@ form_track.addEventListener("submit", (event) => {
   event.preventDefault();
 
   if (navigator.geolocation) {
-    debugger;
+    
     navigator.geolocation.getCurrentPosition(getRestaurants, noTracking);
   }
 });

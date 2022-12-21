@@ -31,26 +31,31 @@ function showRes({ businesses }) {
 
   for (const rest of businesses) {
     const cardContainer = document.createElement("div");
-    cardContainer.className = "card";
+    cardContainer.className = "card grid-item";
     cardContainer.setAttribute(
       "style",
-      "width: 18rem; border: 5px solid blue;"
+      "width: 18rem; height: 22rem;"
     );
     cardContainer.setAttribute("lat", `${rest.coordinates.latitude}`);
     cardContainer.setAttribute("lng", `${rest.coordinates.longitude}`);
     cardContainer.innerHTML = `
-      <img src="${rest.image_url}" class="card-img-top" alt="A poster of the movie by the name of ${rest.name}">
+    <a href="${rest.url}" method="get" target="_blank"><img src="${rest.image_url}" class="card-img-top card-img" alt="the img of ${rest.name}"></a>
       <div class="card-body">
-          <h5 class="card-title">${rest.name}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">${rest.location.display_address}</h6>
-        <h6 class="card-subtitle mb-2 text-muted">${rest.phone}</h6>
-        
-          <a href="${rest.url}" target="_blank" class="card-link">Card link</a>
-          <a href="#map_container" class="card-link">Map</a>
+         <h5 class="card-title">${rest.name}</h5>
+         <h6 class="card-subtitle mb-2 text-muted">${rest.location.display_address}</h6>
+         <h6 class="card-subtitle mb-2 text-muted">${rest.phone}</h6>
+         
+         <form action="${rest.url}" method="get" target="_blank">
+         <button class="card-btn" type="submit">more info</button>
+         </form>
+
+         <a href="#map_container" class="card-link">Map</a>
+
+         <div>
       </div>`;
     restaurant_results.appendChild(cardContainer);
   }
-  debugger;
+  
   if (locationCoords.lat == 0 && locationCoords.lng == 0) {
     locationCoords.lat = Number(
       restaurant_results.children[0].getAttribute("lat")
