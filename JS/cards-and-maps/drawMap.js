@@ -9,7 +9,22 @@ export async function drawMap({ lat, lng }) {
       lng: lng,
     },
     mapId: `92d78e74df8df401`, // Custom map style by Ethan
+    
   });
+//Marks user current location or location they entered
+const coord ={lat, lng};
+new google.maps.Marker({
+  position: coord,
+  map: map,
+  icon: {
+    path: google.maps.SymbolPath.CIRCLE,
+    scale: 10,
+    fillOpacity: 1,
+    strokeWeight: 2,
+    fillColor: '#5384ED',
+    strokeColor: '#ffffff',
+  },
+});
 
   const infoWindow = new google.maps.InfoWindow({
     content: "",
