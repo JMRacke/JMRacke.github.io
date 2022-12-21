@@ -1,5 +1,5 @@
 //Search Form Sumbmit Handler
-import { centerOnMarker, drawMap } from "./cards-and-maps/drawMap.js";
+import { centerOnMarker } from "./cards-and-maps/drawMap.js";
 import {
   getRestaurants,
   noTrackGetRestaurants,
@@ -11,15 +11,16 @@ if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(() => {}, noTracking);
 }
 
+// When the user hits submit, the getRestaurants function is called passing the coordinates and form data
 form_track.addEventListener("submit", (event) => {
   event.preventDefault();
 
   if (navigator.geolocation) {
-    
     navigator.geolocation.getCurrentPosition(getRestaurants, noTracking);
   }
 });
 
+// No tracking form submit button functionality. Passes both search and location values
 form_noTrack.addEventListener("submit", (event) => {
   event.preventDefault();
   noTrackGetRestaurants(
@@ -28,6 +29,7 @@ form_noTrack.addEventListener("submit", (event) => {
   );
 });
 
+// Functionality for the "Map" button on the cards. Focuses the map on the restaurant and zooms in.
 restaurant_results.onclick = (event) => {
   let target = event.target.parentNode;
   if (target.classList.contains("card-body")) {
@@ -38,4 +40,3 @@ restaurant_results.onclick = (event) => {
     centerOnMarker(coords);
   }
 };
-

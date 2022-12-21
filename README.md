@@ -4,28 +4,29 @@
 
 ### Table of Contents
 
-1. [Team Members](#Team-7-Members)
+1. [Team Members](#Team_7_Members)
 2. [Project Description](#Project-Description)
-3. [Flow Diagram](<(#Flow-Diagram)>)
+3. [Flow Diagram](#Flow-Diagram)
 4. [User Stories](#User-Stories)
-5. [Technologies Used](#Technologies-Used)
-6. [Lessons Learned](#Lessons-Learned)
+5. [Product Demo](#Product-Demo)
+6. [Technologies Used](#Technologies-Used)
+7. [Lessons Learned](#lessons_learned)
 
-### Team 7 Members
+### <a name="Team_7_Members">Team 7 Members</a>
 
 - Alex Aguilar
 - Ethan Wang
 - Joseph Racke
 
-### Project Description
+### <a name="Project-Description">Project Description</a>
 
 The Restaurant/Pub Finder App lets you find open Restaurants/Pubs near you, using your location and a search word (i.e. sushi or beer). If you do not want share your location that is ok, you can enter you city or zip code. After entering your search criteria and submitting. The Restaurant/Pub Finder App will display open Restaurants/Pubs and it's business information. All of the open Restaurants/Pubs will be placed on a map centered on your location.
 
-### Flow Diagram
+### <a name="Flow-Diagram">Flow Diagram</a>
 
 ![image](./img/flowDiagram.PNG)
 
-### User Stories
+### <a name="User-Stories">User Stories</a>
 
 - As a user I am able to share/not share my location.
   - If I dont share my location, I can type my zip code or address.
@@ -34,7 +35,11 @@ The Restaurant/Pub Finder App lets you find open Restaurants/Pubs near you, usin
 - As a user I want to see “open” locations with basic information(address, phone #).
 - As a user I want to see the location based on my current location.(If I shared my location).
 
-### Technologies Used
+### <a name="Product-Demo">Product Demo</a>
+
+- [Restaurant Finder](https://JMRacke.github.io)
+
+### <a name="Technologies-Used">Technologies Used</a>
 
 - HTML/CSS/JS
 - VS Code
@@ -42,4 +47,17 @@ The Restaurant/Pub Finder App lets you find open Restaurants/Pubs near you, usin
 - Figma
 - Heroku
 
-### Lessons Learned
+### <a name="lessons_learned">Lessons Learned</a>
+
+- Joe
+
+  - Google Javascript API
+  - Google Places API
+  - Using a proxy server to hide API-Keys
+
+- Alex
+
+  - TODO
+
+- Ethan
+  - TODO
