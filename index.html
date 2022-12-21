@@ -42,7 +42,10 @@
             type="text"
             id="restaurant_name"
             placeholder="Search for a restaurant"
+            pattern=".*\S.*" required
           />
+          <span class="caret"></span>
+
         </div>
         <div class="col-12 form-wrapper">
           <label class="form-label" for="search-radius">Search Radius:</label>
@@ -57,8 +60,7 @@
           />
           <p class="form-label text-center"><span><span id="radius_miles_Track">5</span> miles</span></p>
         </div>
-        <div class="text-center sub_button"><button class="btn btn-primary" type="submit">Submit</button></div>
-        
+        <input type="submit" />
       </form>
 
       <form action="" id="form_noTrack" class="row hidden">
@@ -96,7 +98,7 @@
           />
           <p class="form-label text-center"><span><span id="radius_miles_noTrack">5</span> miles</span></p>
         </div>
-        <div class="text-center sub_button"><button class="btn btn-primary" type="submit">Submit</button></div>
+        <input type="submit" />
       </form>
     </main>
     <hr />
@@ -126,7 +128,7 @@
           <img src="./img/ethan.jpg" alt="Ethan Wang's Portrait" class="card-img-top portrait" />
           <div class="card-body">
             <h5 class="card-title">Ethan Wang</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Software Development Apprentice for Amazon.com</h6>  
+            <h6 class="card-subtitle mb-2 text-muted">Ethan is a Software Development Apprentice at Amazon. He searved as an airborne infantry in the United States Army and currently resides in NY.</h6>  
           </div>
         </div>
         <div id="joseph" class="card id_card text-center justify-content-center">
