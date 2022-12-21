@@ -33,7 +33,7 @@ function handleUrl(url) {
     const apiError = json_payload.error;
 
     if (apiError) {
-      handleError();
+      handleError(apiError.code);
     } else if (!restaurants || restaurants.length === 0) {
       handleError(NO_FOUND_RESTAURANTS);
     } else {
