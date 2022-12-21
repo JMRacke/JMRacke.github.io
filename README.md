@@ -61,4 +61,6 @@ The Restaurant/Pub Finder App lets you find open Restaurants/Pubs near you, usin
   - Cross-Origin Resource Sharing (CORS)
 
 - Ethan
-  - TODO
+  - Page layout
+  - Grid, Card Setup
+  - Utilize Api JSON response 
