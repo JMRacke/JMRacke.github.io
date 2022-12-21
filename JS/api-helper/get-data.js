@@ -1,3 +1,4 @@
+// function to fetch json data from an API url
 export function getData(apiURL) {
   return new Promise((resolve, reject) => {
     fetch(apiURL)
