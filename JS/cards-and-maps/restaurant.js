@@ -15,14 +15,14 @@ export function getRestaurants({ coords: { latitude: lat, longitude: lon } }) {
   locationCoords.lng = Number(lon);
   const meters = calculateRadius(search_range_Track.value);
 
-  const apiUrl = `https://sde-final-backend.herokuapp.com/api?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=${meters}&open_now=true&sort_by=best_match&limit=20`;
+  const apiUrl = `https://dnp5bglgo0.execute-api.us-west-2.amazonaws.com/myYelpAPI?term=${restaurant_name.value}&latitude=${lat}&longitude=${lon}&radius=${meters}&open_now=true&sort_by=best_match&limit=20`;
 
   handleUrl(apiUrl);
 }
 //Without geolocation. This function uses a searchlocation, searchTerm, and searchRadius to display cards.
 export function noTrackGetRestaurants(searchlocation, searchTerm) {
   const meters = calculateRadius(search_range_noTrack.value);
-  const apiUrl = `https://sde-final-backend.herokuapp.com/api?location=${searchlocation}&radius=${meters}&term=${searchTerm}&open_now=true&sort_by=best_match&limit=20`;
+  const apiUrl = `https://dnp5bglgo0.execute-api.us-west-2.amazonaws.com/myYelpAPI?location=${searchlocation}&radius=${meters}&term=${searchTerm}&open_now=true&sort_by=best_match&limit=20`;
 
   handleUrl(apiUrl);
 }
